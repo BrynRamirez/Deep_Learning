@@ -16,12 +16,12 @@ testY = np_utils.to_categorical(testY, 10)
 
 # CNN
 model = Sequential()
-model.add(Conv2D(32, kernel_size=(3, 3), input_shape=(28, 28, 1), activation='sigmoid'))
+model.add(Conv2D(64, kernel_size=(3, 3), input_shape=(28, 28, 1), activation='sigmoid'))
 model.add(Dropout(0.2))
 model.add(MaxPool2D(pool_size=2))
-# model.add(Conv2D(64, kernel_size=(3, 3), activation='sigmoid'))
-# model.add(MaxPool2D(pool_size=2))
-model.add(Conv2D(96, kernel_size=(3, 3), activation='sigmoid'))
+
+model.add(Conv2D(64, kernel_size=(3, 3), padding='same', activation='sigmoid'))
+model.add(Dropout(0.2))
 model.add(MaxPool2D(pool_size=2))
 model.add(Flatten())
 model.add(Dense(10, activation='softmax'))

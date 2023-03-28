@@ -31,10 +31,8 @@ with tf.device('/GPU:0'):
         model = tf.keras.models.Sequential()
         model.add(tf.keras.layers.Dense(3, input_dim=4, activation='softmax'))
         model.compile(loss='categorical_crossentropy', metrics=['accuracy'])
-        model.fit(trainX, trainY, epochs=600, batch_size=1, verbose=1)
-        averages.append(model.history.history['accuracy'])
-        # model.evaluate(testX, testY)
+        model.fit(trainX, trainY, epochs=600, batch_size=1, verbose=0)
+        averages.append(model.evaluate(testX, testY)[1])
         print(f"Iteration: {i + 1}:100 complete")
 
     print(f'Total avg: {np.average(averages)}')
-
