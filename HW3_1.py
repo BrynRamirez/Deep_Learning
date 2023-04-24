@@ -11,6 +11,7 @@ from tensorflow.keras.utils import to_categorical
 from keras.models import Sequential
 from keras.layers import Embedding, LSTM, Dense, Flatten
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 # download and extract data
